@@ -1,8 +1,7 @@
 //  GUI
 make a gui, it is described in an image format on your school ipad in adobe draw.
-You should use kivy.
+You should use pysimple gui.
 
 
 //  UNITS
 instead of trying to retrive the units from the OWM api, alternatively, get all units in imperial, then convert them to what the user desires.
-
