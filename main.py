@@ -1,10 +1,9 @@
 import os, sys, platform
 
-
-print("Installing dependencies.. \nPlease wait..")
-os.system("pip3 install --upgrade pip")
-os.system("pip3 install geocoder --upgrade")
-os.system("pip3 install requests --upgrade")
+# print("Installing dependencies.. \nPlease wait..")
+# os.system("pip3 install --upgrade pip")
+# os.system("pip3 install geocoder --upgrade")
+# os.system("pip3 install requests --upgrade")
 
 
 import geocoder, requests
@@ -39,7 +38,7 @@ def get_weather():
         print("PLEASE WAIT, GETTING DATA.")
 
         # api key for retrieving the weather
-        api_key = open("api_key_example.txt", "r")
+        api_key = open("api_key.txt", "r")
         api_key = str(api_key.readline())
         print(api_key)
         lang = 'en'
@@ -53,9 +52,9 @@ def get_weather():
         print(weather_data)
         if weather_data['cod'] == 401:
             os.system(clear_cmd)
-            print("CRITICAL_ALERT://   Invalid API key. For more information, visit "
-                  "'http://openweathermap.org/faq#error401'")
-            sys.exit(2)
+            print(f"CRITICAL_ALERT://   {weather_data['message']}")
+            print(f"\n\nThe tested API key is '{api_key}'.")
+            exit()
 
         # displaying data needed.
         weather_main = weather_data['weather'][0]['main']
@@ -71,16 +70,17 @@ def get_weather():
         # prints whole json api output.
         # print(weather)
 
-        weather_printed = (f"""(Weather:  {string.capwords(weather_main)})
+        weather_printed = (f"""(Weather:  {weather_main})
     (Description: {string.capwords(weather_desc)})
     (Temperature:  {temp} °C)
     (Wind Speed:  {wind_speed} mph)
     (Humidity:  {humidity} %)
     (Air Pressure:  {air_pressure} inHg)
+(Location:   )
     (Estimated Latitude:  {latitude})
     (Estimated Longitude:  {longitude})""")
 
-        wait_time = 20  # time to wait between every request for weather.
+        wait_time = 60  # time to wait between every request for weather.
         # limit is 1 request per second with a free account.
 
         for i in range(wait_time):
