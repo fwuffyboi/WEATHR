@@ -1,5 +1,5 @@
 {
-	"api_key" : "bfbe2dd014e8bbf9e64dd8071125eefa",  // Value: STR, Desc: The api key you got from https://openweathermap.org/api_keys, if you DONT have one, get it! Its free!
-	"language" : "en",  // Vlaue: STR, Desc: The language to recieve the weather as. (UNSUPPORTED. LEAVE AS "en").
-	"refresh_time" : 60  // Value: INT, Desc: The amount of time to wait between refreshing the weather forecast, in seconds.
+	"api_key" : "",
+	"language" : "en",
+	"refresh_time" : 60
 }
