@@ -89,8 +89,8 @@ def get_weather():
             air_pressure = weather_data['main']['pressure']
             latitude = weather_data['coord']['lat']
             longitude = weather_data['coord']['lon']
-            sunrise = weather_data['sys'][0]['sunrise']
-            sunset = weather_data['sys'][0]['sunset']
+            sunrise = weather_data['sys']['sunrise']
+            sunset = weather_data['sys']['sunset']
             icon_id = weather_data['weather'][0]['icon']
 
             # prints whole json api output.
@@ -98,7 +98,7 @@ def get_weather():
 
             weather_printed = (f"""
 
-(WEATHR BY '{developer_username}'.)
+(WEATHR BY '{developer_username}')
 (VERS. {application_version})
 
     (Weather:  {weather_main})
@@ -107,12 +107,13 @@ def get_weather():
             (Wind Speed:  {wind_speed} mph)
             (Humidity:  {humidity} %)
             (Air Pressure:  {air_pressure} inHg)
-    (Location:   )
+    (Location:   
             (Estimated Latitude:  {latitude})
             (Estimated Longitude:  {longitude})
-    (Solar:      )
-            (Sunrise:  {str(time.strftime("%H:%M", time.gmtime(sunrise)))}
-            (Sunset:  {str(time.strftime("%H:%M", time.gmtime(sunset)))}
+    (Solar:  
+	    (Current Time: {str(time.strftime("%H:%M:%S", time.gmtime(time.time())))})
+            (Sunrise:  {str(time.strftime("%H:%M", time.gmtime(sunrise)))})
+            (Sunset:  {str(time.strftime("%H:%M", time.gmtime(sunset)))})
 """)
 
             for i in range(wait_time):
