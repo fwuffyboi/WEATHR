@@ -1,2 +1,0 @@
-Delete this text and replace it with an api key from openWeatherMap.
-HYPERLINK://   https://home.openweathermap.org/api_keys
