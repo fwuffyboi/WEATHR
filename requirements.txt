@@ -1,3 +1,4 @@
-pip
-geocoder
-requests
+geocoder~=1.38.1
+requests~=2.27.1
+PySimpleGUI~=4.57.0
+PIL~=9.0.1
